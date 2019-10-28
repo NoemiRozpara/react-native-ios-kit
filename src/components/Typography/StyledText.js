@@ -41,12 +41,15 @@ class StyledText extends React.Component<Props> {
     const fontSize = resolveFontSizeFromStyle(style) || config.fontSize;
     const letterSpacing = trackingToSpacing(fontSize, config.tracking);
 
+    const { tracking, fontSize, fontWeight, leading, ...otherStyles } = config;
+
     const calculatedStyle = {
       fontSize,
       fontWeight: config.fontWeight,
       letterSpacing,
       lineHeight: config.leading,
       color: theme.textColor,
+      ...otherStyles,
     };
     return (
       <Text style={[calculatedStyle, style]} {...rest}>

@@ -2,9 +2,10 @@
  * @flow
  */
 import React from 'react';
+import { Text } from 'react-native';
 import StyledText from './StyledText';
 
-type Config = {
+type Config = Text.propTypes.style & {
   fontSize: number,
   tracking: number,
   leading: number,

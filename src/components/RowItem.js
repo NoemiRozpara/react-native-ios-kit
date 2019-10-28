@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import { View, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, TouchableHighlight, Text } from 'react-native';
 
 import Icon from './Icon';
 import { Body, Caption1 } from './Typography/Typography';
@@ -42,6 +42,9 @@ export type Props = {
    */
   first?: boolean,
   last?: boolean,
+
+  titleStyle?: Text.propTypes.style,
+  subtitleStyle?: Text.propTypes.style,
 };
 
 class RowItem extends React.Component<Props> {
@@ -64,7 +67,16 @@ class RowItem extends React.Component<Props> {
   };
 
   renderRow = () => {
-    const { icon, title, subtitle, theme, first, last } = this.props;
+    const {
+      icon,
+      title,
+      subtitle,
+      theme,
+      first,
+      last,
+      titleStyle,
+      subtitleStyle,
+    } = this.props;
 
     return (
       <View
@@ -88,8 +100,8 @@ class RowItem extends React.Component<Props> {
             },
           ]}
         >
-          {!!title && <Body>{title}</Body>}
-          {subtitle && <Caption1>{subtitle}</Caption1>}
+          {!!title && <Body style={titleStyle}>{title}</Body>}
+          {subtitle && <Caption1 style={subtitleStyle}>{subtitle}</Caption1>}
         </View>
         {this.renderRight()}
       </View>
