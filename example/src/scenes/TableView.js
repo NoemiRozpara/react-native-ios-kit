@@ -55,9 +55,10 @@ class TableViewExample extends React.Component<Props, State> {
           <RowItem title="No Icon" />
           <RowItem
             icon="ios-heart"
-            title="Health"
+            title="Health is important lorem ipsum Health is important lorem ipsum "
             rightComponent={ArrowRight}
             onPress={() => Alert.alert('Hello')}
+            titleStyle={{ numberOfLines: 2, ellipsizeMode: 'tail' }}
           />
         </TableView>
         <TableView withoutHeader withoutFooter>
